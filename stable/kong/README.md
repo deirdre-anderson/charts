@@ -290,15 +290,6 @@ readinessProbe:
     ...
 ```
 
-Note that RBAC is **NOT** currently enabled on the admin API container for the
-controller Pod when the ingress controller is enabled. This admin API container
-is not exposed outside the Pod, so only the controller can interact with it. We
-intend to add RBAC to this container in the future after updating the controller
-to add support for storing its RBAC token in a Secret, as currently it would
-need to be stored in plaintext. RBAC is still enforced on the admin API of the
-main deployment when using the ingress controller, as that admin API *is*
-accessible outside the Pod.
-
 #### Sessions
 
 Login sessions for Kong Manager and the Developer Portal make use of [the Kong
